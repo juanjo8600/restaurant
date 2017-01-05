@@ -1,0 +1,6 @@
+rootProject.name = 'restaurant'
+include 'repository'
+include 'domain'
+include 'service'
+include 'webservice'
+
