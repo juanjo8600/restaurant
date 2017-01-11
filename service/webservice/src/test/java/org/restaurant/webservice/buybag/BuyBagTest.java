@@ -19,11 +19,11 @@ public class BuyBagTest {
 	  BagRequest bagRequest = new BagRequest();
 
 	  ProductRequest productRequest2 = new ProductRequest("2", 1);
-	  bagRequest.add(productRequest2);
+//	  bagRequest.add(productRequest2);
 	  ProductRequest productRequest5 = new ProductRequest("5", 1);
-	  bagRequest.add(productRequest5);
+//	  bagRequest.add(productRequest5);
 	  ProductRequest productRequest1 = new ProductRequest("1", 4);
-	  bagRequest.add(productRequest1);
+//	  bagRequest.add(productRequest1);
 
 	  BuyBagRequest buyBagResquest = new BuyBagRequest(bagRequest);
 
