@@ -21,7 +21,6 @@ public class BuyServiceImpl implements BuyService {
      * @return Buy operation result with information about buy.
      */
     @Transactional
-    @Override
     public BuyOperationResult buy(BuyBag buyBag) {
 
         Bill bill = new Bill();
