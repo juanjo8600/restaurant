@@ -9,12 +9,10 @@ import javax.jws.WebService;
 /**
  * Created by jj.jimenez on 10/01/2017.
  */
-@WebService(endpointInterface = "org.restaurant.webservice.BuyBagService")
-public class BuyBag implements BuyBagService{
+@WebService(endpointInterface = "org.restaurant.webservice.BuyBagService") public class BuyBag
+   implements BuyBagService {
 
-   @WebMethod
-   @Override
-   public BuyBagResponse buyBag(BuyBagRequest buyBagResquest) {
+   @WebMethod @Override public BuyBagResponse buyBag(BuyBagRequest buyBagResquest) {
 
 	  return new BuyBagResponse();
    }

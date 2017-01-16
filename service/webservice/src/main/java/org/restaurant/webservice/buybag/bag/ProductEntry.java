@@ -14,6 +14,9 @@ import java.io.Serializable;
    private ProductRequest productRequest;
    private int quantity;
 
+   public ProductEntry() {
+   }
+
    public ProductEntry(ProductRequest productRequest, int quantity) {
 	  this.productRequest = productRequest;
 	  this.quantity = quantity;

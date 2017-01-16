@@ -12,10 +12,13 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
-    compile group: 'org.apache.cxf', name: 'cxf-api', version: '2.7.18'
+
     compile group: 'org.springframework', name: 'spring-context', version: '4.3.5.RELEASE'
     compile group: 'org.springframework', name: 'spring-beans', version: '4.3.5.RELEASE'
     compile group: 'org.springframework', name: 'spring-web', version: '4.3.5.RELEASE'
+
     compile group: 'org.apache.cxf', name: 'cxf-core', version: '3.1.9'
+    compile group: 'org.apache.cxf', name: 'cxf-rt-transports-http', version: '3.1.9'
+    compile group: 'org.apache.cxf', name: 'cxf-rt-frontend-jaxws', version: '3.1.9'
 
 }

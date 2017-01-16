@@ -5,13 +5,12 @@ import org.restaurant.webservice.buybag.buy.BuyBagResponse;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
+import javax.jws.soap.SOAPBinding;
 
 /**
  * Created by juanjose on 13/1/17.
  */
-@WebService
-public interface BuyBagService {
+@WebService @SOAPBinding(style = SOAPBinding.Style.DOCUMENT, use = SOAPBinding.Use.LITERAL) public interface BuyBagService {
 
-    @WebMethod
-    BuyBagResponse buyBag(BuyBagRequest buyBagResquest);
+   @WebMethod BuyBagResponse buyBag(BuyBagRequest buyBagResquest);
 }
