@@ -10,15 +10,23 @@ repositories {
     mavenCentral()
 }
 
+def springVersion ='4.3.5.RELEASE'
+def cxfVersion ='3.1.9'
+def junitVersion ='4.11'
+def apacheCommonsVersion = '3.1'
+
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
 
-    compile group: 'org.springframework', name: 'spring-context', version: '4.3.5.RELEASE'
-    compile group: 'org.springframework', name: 'spring-beans', version: '4.3.5.RELEASE'
-    compile group: 'org.springframework', name: 'spring-web', version: '4.3.5.RELEASE'
+    compile group: 'org.springframework', name: 'spring-context', version: springVersion
+    compile group: 'org.springframework', name: 'spring-beans', version: springVersion
+    compile group: 'org.springframework', name: 'spring-web', version: springVersion
 
-    compile group: 'org.apache.cxf', name: 'cxf-core', version: '3.1.9'
-    compile group: 'org.apache.cxf', name: 'cxf-rt-transports-http', version: '3.1.9'
-    compile group: 'org.apache.cxf', name: 'cxf-rt-frontend-jaxws', version: '3.1.9'
+    compile group: 'org.apache.cxf', name: 'cxf-core', version: cxfVersion
+    compile group: 'org.apache.cxf', name: 'cxf-rt-transports-http', version: cxfVersion
+    compile group: 'org.apache.cxf', name: 'cxf-rt-frontend-jaxws', version: cxfVersion
+
+    testCompile group: 'junit', name: 'junit', version: junitVersion
+    testCompile group: 'org.apache.commons', name: 'commons-lang3', version: apacheCommonsVersion
+
 
 }

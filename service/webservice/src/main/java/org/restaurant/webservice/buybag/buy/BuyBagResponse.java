@@ -7,17 +7,15 @@ import java.io.Serializable;
 /**
  * Created by jj.jimenez on 11/01/2017.
  */
-@XmlRootElement(namespace = "org.restaurant.webservice")
-public class BuyBagResponse
-   implements Serializable {
+@XmlRootElement(namespace = "org.restaurant.webservice") public class BuyBagResponse implements Serializable {
 
-   private String prop;
+   private String serviceNumber;
 
-   @XmlElement public String getProp() {
-	  return prop;
+   @XmlElement public String getServiceNumber() {
+	  return serviceNumber;
    }
 
-   public void setProp(String prop) {
-	  this.prop = prop;
+   public void setServiceNumber(String serviceNumber) {
+	  this.serviceNumber = serviceNumber;
    }
 }
