@@ -1,5 +1,7 @@
 package org.restaurant.webservice.buybag.bag;
 
+import org.restaurant.webservice.buybag.product.ProductRequest;
+
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
@@ -23,5 +25,11 @@ import java.util.List;
 
    public void setBag(List<ProductEntry> bag) {
 	  this.bag = bag;
+   }
+
+   public void add(ProductRequest productRequest, int quantity) {
+	  ProductEntry productEntry = new ProductEntry(productRequest, quantity);
+	  bag.add(productEntry);
+
    }
 }
