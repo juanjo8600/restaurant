@@ -9,7 +9,7 @@ import java.io.Serializable;
 /**
  * Created by jj.jimenez on 10/01/2017.
  */
-@XmlRootElement public class BuyBagRequest implements Serializable {
+@XmlRootElement(namespace = "org.restaurant.webservice") public class BuyBagRequest implements Serializable {
 
    private BagRequest bagRequest;
 
