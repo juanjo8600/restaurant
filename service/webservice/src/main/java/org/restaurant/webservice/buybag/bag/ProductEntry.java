@@ -4,12 +4,15 @@ import org.restaurant.webservice.buybag.product.ProductRequest;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 import java.io.Serializable;
 
 /**
  * Created by jj.jimenez on 11/01/2017.
  */
-@XmlRootElement public class ProductEntry implements Serializable {
+@XmlRootElement(namespace = "org.restaurant.webservice")
+@XmlType(namespace = "org.restaurant.webservice", name = "ProductEntry")
+public class ProductEntry implements Serializable {
 
    private ProductRequest productRequest;
    private int quantity;
