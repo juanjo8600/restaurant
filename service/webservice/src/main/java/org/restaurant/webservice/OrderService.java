@@ -15,7 +15,7 @@ import javax.xml.ws.ResponseWrapper;
  */
 @WebService(targetNamespace = "org.restaurant.webservice") public interface OrderService {
 
-   @WebMethod @WebResult(name = "OrderResponse", targetNamespace = "org.restaurant.webservice") @ResponseWrapper(targetNamespace = "org.restaurant.webservice", className = "org.restaurant.webservice.order.buy.OrderResponse")
+   @WebMethod @WebResult(name = "OrderResponse", targetNamespace = "org.restaurant.webservice")
    OrderResponse doOrder(
 	  @WebParam(name = "orderRequest", targetNamespace = "org.restaurant.webservice") OrderRequest orderRequest);
 

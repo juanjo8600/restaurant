@@ -11,7 +11,7 @@ import java.io.Serializable;
 
    private String orderId;
 
-   @XmlElement public String getOrderId() {
+   @XmlElement(name = "orderId") public String getOrderId() {
 	  return orderId;
    }
 
