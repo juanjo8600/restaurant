@@ -1,6 +1,6 @@
-package org.restaurant.webservice.buybag.bag;
+package org.restaurant.webservice.order.shopping.cart;
 
-import org.restaurant.webservice.buybag.product.ProductRequest;
+import org.restaurant.webservice.order.product.ProductRequest;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;

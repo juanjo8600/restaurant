@@ -4,5 +4,5 @@
     <import resource="classpath:/META-INF/cxf/cxf.xml"/>
     <import resource="classpath:/META-INF/cxf/cxf-servlet.xml"/>
 
-    <jaxws:endpoint id="buyBagService" implementor="org.restaurant.webservice.BuyBag" address="/BuyBag"/>
+    <jaxws:endpoint id="orderService" implementor="org.restaurant.webservice.Order" address="/DoOrder"/>
 </beans>
