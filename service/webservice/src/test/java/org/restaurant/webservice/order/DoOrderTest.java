@@ -13,12 +13,12 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by jj.jimenez on 05/01/2017.
  */
-public class BuyBagTest {
+public class DoOrderTest {
 
    // TODO use spring DI???
    private Order orderService = new Order();
 
-   @Test public void buyBagServiceTest() {
+   @Test public void doOrderServiceTest() {
 	  ShoppingCart shoppingCart = new ShoppingCart();
 
 	  ProductRequest productRequest2 = new ProductRequest("2", 1);
