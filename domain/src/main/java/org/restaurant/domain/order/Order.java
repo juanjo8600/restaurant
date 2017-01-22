@@ -1,4 +1,4 @@
-package org.restaurant.domain.bag;
+package org.restaurant.domain.order;
 
 import org.restaurant.domain.common.Money;
 import org.restaurant.domain.discount.Discount;
@@ -9,31 +9,41 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Buy bag.
+ * Buy order.
  * Created by juanjosejimenezfernandez on 16/12/16.
  */
-public class BuyBag {
+public class Order {
 
-    private Map<Product, Integer> productList = new HashMap<>();
+    private Map<Product, Integer> shoppingCart = new HashMap<>();
     private Discount discount = new NoDiscount();
 
     /**
-     * Add product to the bag.
+     * Add product to the order.
      *
      * @param product product to add.
      */
     public void add(Product product) {
-        productList.merge(product, 1, Integer::sum);
+        shoppingCart.merge(product, 1, Integer::sum);
+    }
+
+    /**
+     * Add product to the order.
+     *
+     * @param productCode product to add.
+     */
+    public void add(String productCode, int quantity) {
+
+        shoppingCart.merge(new Product(productCode), quantity, Integer::sum);
     }
 
     /**
      * Get total price.
      *
-     * @return total price of bag.
+     * @return total price of order.
      */
     public Money getTotalPrice() {
         Money totalPrice = new Money();
-        productList.forEach((product, quantity) -> totalPrice.addNTimes(product.getProductPrice(), quantity));
+        shoppingCart.forEach((product, quantity) -> totalPrice.addNTimes(product.getProductPrice(), quantity));
         return discount.calculateDiscountOnPrice(totalPrice);
     }
 
@@ -52,25 +62,25 @@ public class BuyBag {
      * @return all product list with quantity.
      */
     public Map<Product, Integer> getAllProducts() {
-        return productList;
+        return shoppingCart;
     }
 
     /**
-     * Get total of products in the bag.
+     * Get total of products in the order.
      *
-     * @return total of products in the bag.
+     * @return total of products in the order.
      */
     public int getNumberOfProducts() {
-        return productList.values().stream().reduce(0, Integer::sum);
+        return shoppingCart.values().stream().reduce(0, Integer::sum);
     }
 
     /**
-     * Get quantity of a type of product in the bag.
+     * Get quantity of a type of product in the order.
      *
      * @param product Product to check.
-     * @return Quantity of this product in the bag.
+     * @return Quantity of this product in the order.
      */
     public int getProductQuantity(Product product) {
-        return productList.getOrDefault(product, 0);
+        return shoppingCart.getOrDefault(product, 0);
     }
 }

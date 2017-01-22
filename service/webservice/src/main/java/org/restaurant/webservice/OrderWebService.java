@@ -13,7 +13,7 @@ import javax.xml.ws.ResponseWrapper;
 /**
  * Created by juanjose on 13/1/17.
  */
-@WebService(targetNamespace = "org.restaurant.webservice") public interface OrderService {
+@WebService(targetNamespace = "org.restaurant.webservice") public interface OrderWebService {
 
    @WebMethod @WebResult(name = "OrderResponse", targetNamespace = "org.restaurant.webservice")
    OrderResponse doOrder(

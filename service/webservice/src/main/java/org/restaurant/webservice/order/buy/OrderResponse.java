@@ -1,21 +1,33 @@
 package org.restaurant.webservice.order.buy;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import org.restaurant.domain.order.Order;
+import org.restaurant.service.buy.dto.BuyOperationResult;
+
+import javax.xml.bind.annotation.*;
 import java.io.Serializable;
 
 /**
  * Created by jj.jimenez on 11/01/2017.
  */
-@XmlRootElement(namespace = "org.restaurant.webservice") public class OrderResponse implements Serializable {
+@XmlRootElement(namespace = "org.restaurant.webservice")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class OrderResponse implements Serializable {
 
-   private String orderId;
+    private String orderId;
 
-   @XmlElement(name = "orderId") public String getOrderId() {
-	  return orderId;
-   }
+    @XmlElement
+    @XmlTransient
+    private Order order;
 
-   public void setOrderId(String orderId) {
-	  this.orderId = orderId;
-   }
+    public OrderResponse() {
+    }
+
+    public OrderResponse(BuyOperationResult buyOperationResult) {
+        this.order = buyOperationResult.getOrder();
+    }
+
+    @XmlElement(name = "orderId")
+    public String getOrderId() {
+        return orderId;
+    }
 }

@@ -2,7 +2,7 @@ package org.restaurant.webservice.order;
 
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
-import org.restaurant.webservice.Order;
+import org.restaurant.webservice.OrderWebServiceImpl;
 import org.restaurant.webservice.order.shopping.cart.ShoppingCart;
 import org.restaurant.webservice.order.buy.OrderRequest;
 import org.restaurant.webservice.order.buy.OrderResponse;
@@ -19,7 +19,7 @@ import static org.junit.Assert.assertTrue;
 public class DoOrderTest {
 
     // TODO use spring DI???
-    private Order orderService = new Order();
+    private OrderWebServiceImpl orderService = new OrderWebServiceImpl();
 
     @Test
     public void doOrderServiceTest() {

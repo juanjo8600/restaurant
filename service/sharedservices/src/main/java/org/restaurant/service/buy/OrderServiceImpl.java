@@ -1,15 +1,18 @@
 package org.restaurant.service.buy;
 
-import org.restaurant.domain.bag.BuyBag;
 import org.restaurant.repositoy.Bill.Bill;
 import org.restaurant.repositoy.Bill.BillRepository;
+import org.restaurant.service.buy.dto.BuyOperationRequest;
+import org.restaurant.service.buy.dto.BuyOperationResult;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by juanjosejimenezfernandez on 24/12/16.
  */
-public class BuyServiceImpl implements BuyService {
+@Service
+public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private BillRepository billRepository;
@@ -17,15 +20,15 @@ public class BuyServiceImpl implements BuyService {
     /**
      * Buy operation.
      *
-     * @param buyBag buy bag to buy.
+     * @param buyOperationRequest buy order to buy.
      * @return Buy operation result with information about buy.
      */
     @Transactional
-    public BuyOperationResult buy(BuyBag buyBag) {
+    public BuyOperationResult buy(BuyOperationRequest buyOperationRequest) {
 
         Bill bill = new Bill();
         billRepository.save(bill);
 
-        return new BuyOperationResult(false, "");
+        return new BuyOperationResult();
     }
 }
