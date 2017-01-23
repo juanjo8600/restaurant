@@ -1,4 +1,4 @@
-package org.restaurant.repositoy.Bill;
+package org.restaurant.repositoy.bill;
 
 import javax.persistence.*;
 import java.util.Date;

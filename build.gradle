@@ -2,6 +2,9 @@ group 'org.restaurant'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'checkstyle'
+apply plugin: 'pmd'
+
 sourceCompatibility = 1.8
 
 

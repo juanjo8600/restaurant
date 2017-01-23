@@ -1,14 +1,11 @@
 package org.restaurant.service.userstory;
 
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.restaurant.domain.order.Order;
-import org.restaurant.repositoy.Bill.Bill;
-import org.restaurant.repositoy.Bill.BillRepository;
-import org.restaurant.service.buy.dto.BuyOperationResult;
+import org.restaurant.repositoy.bill.Bill;
+import org.restaurant.repositoy.bill.BillRepository;
 import org.restaurant.service.buy.OrderService;
 import org.restaurant.service.buy.OrderServiceImpl;
 

@@ -18,6 +18,7 @@ def apacheCommonsVersion = '3.1'
 dependencies {
 
     compile project(':domain')
+    compile project(':service:sharedservices')
 
     compile group: 'org.springframework', name: 'spring-context', version: springVersion
     compile group: 'org.springframework', name: 'spring-beans', version: springVersion

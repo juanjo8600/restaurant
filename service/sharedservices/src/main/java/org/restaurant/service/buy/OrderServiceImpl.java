@@ -1,7 +1,7 @@
 package org.restaurant.service.buy;
 
-import org.restaurant.repositoy.Bill.Bill;
-import org.restaurant.repositoy.Bill.BillRepository;
+import org.restaurant.repositoy.bill.Bill;
+import org.restaurant.repositoy.bill.BillRepository;
 import org.restaurant.service.buy.dto.BuyOperationRequest;
 import org.restaurant.service.buy.dto.BuyOperationResult;
 import org.springframework.beans.factory.annotation.Autowired;

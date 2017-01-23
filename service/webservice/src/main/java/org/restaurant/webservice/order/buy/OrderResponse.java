@@ -15,7 +15,6 @@ public class OrderResponse implements Serializable {
 
     private String orderId;
 
-    @XmlElement
     @XmlTransient
     private Order order;
 
@@ -26,7 +25,6 @@ public class OrderResponse implements Serializable {
         this.order = buyOperationResult.getOrder();
     }
 
-    @XmlElement(name = "orderId")
     public String getOrderId() {
         return orderId;
     }
