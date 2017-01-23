@@ -1,5 +1,6 @@
 package org.restaurant.service.userstory;
 
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -27,6 +28,11 @@ public class BuyTest {
 
     public void setUp(){
         when(billRepository.save(any(Bill.class))).thenReturn(new Bill());
+    }
+
+    @Test
+    public void test(){
+
     }
 
 
