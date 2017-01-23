@@ -1,6 +1,5 @@
 package org.restaurant.webservice.order;
 
-import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -39,12 +38,22 @@ public class DoOrderTest {
 
     @Test
     public void doOrderServiceTest() {
+        when(orderService.buy(any(BuyOperationRequest.class))).thenReturn(getBuyOperationResult());
+
+        OrderRequest orderRequest = new OrderRequest(getOrder());
+        OrderResponse orderResponse = orderWebService.doOrder(orderRequest);
+
+        assertTrue(orderResponse.getOrderId() == ORDER_ID);
+    }
+
+    private BuyOperationResult getBuyOperationResult() {
         BuyOperationResult buyOperationResult = new BuyOperationResult();
         Order orderResult = new Order(ORDER_ID);
         buyOperationResult.setOrder(orderResult);
+        return buyOperationResult;
+    }
 
-        when(orderService.buy(any(BuyOperationRequest.class))).thenReturn(buyOperationResult);
-
+    private ShoppingCart getOrder() {
         List<ProductRequest> shoppingCart = new LinkedList<>();
         ProductRequest productRequest2 = new ProductRequest("2", 1);
         shoppingCart.add(productRequest2);
@@ -54,11 +63,6 @@ public class DoOrderTest {
         shoppingCart.add(productRequest1);
         ShoppingCart order = new ShoppingCart();
         order.setShoppingCart(shoppingCart);
-
-        OrderRequest orderRequest = new OrderRequest(order);
-
-        OrderResponse orderResponse = orderWebService.doOrder(orderRequest);
-
-        assertTrue(orderResponse.getOrderId() == ORDER_ID);
+        return order;
     }
 }
