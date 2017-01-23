@@ -2,6 +2,11 @@ package org.restaurant.webservice.order;
 
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+import org.restaurant.service.buy.OrderService;
 import org.restaurant.webservice.OrderWebServiceImpl;
 import org.restaurant.webservice.order.shopping.cart.ShoppingCart;
 import org.restaurant.webservice.order.buy.OrderRequest;
@@ -16,10 +21,15 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by jj.jimenez on 05/01/2017.
  */
+@RunWith(MockitoJUnitRunner.class)
 public class DoOrderTest {
 
     // TODO use spring DI???
-    private OrderWebServiceImpl orderService = new OrderWebServiceImpl();
+    @InjectMocks
+    private OrderWebServiceImpl orderWebService = new OrderWebServiceImpl();
+
+    @Mock
+    private OrderService orderService;
 
     @Test
     public void doOrderServiceTest() {
@@ -35,7 +45,7 @@ public class DoOrderTest {
 
         OrderRequest orderRequest = new OrderRequest(order);
 
-        OrderResponse orderResponse = orderService.doOrder(orderRequest);
+        OrderResponse orderResponse = orderWebService.doOrder(orderRequest);
 
         assertTrue(StringUtils.isNotBlank(orderResponse.getOrderId()));
     }
