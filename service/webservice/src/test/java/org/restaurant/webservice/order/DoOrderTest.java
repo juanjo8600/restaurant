@@ -6,7 +6,10 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.restaurant.domain.order.Order;
 import org.restaurant.service.buy.OrderService;
+import org.restaurant.service.buy.dto.BuyOperationRequest;
+import org.restaurant.service.buy.dto.BuyOperationResult;
 import org.restaurant.webservice.OrderWebServiceImpl;
 import org.restaurant.webservice.order.shopping.cart.ShoppingCart;
 import org.restaurant.webservice.order.buy.OrderRequest;
@@ -17,6 +20,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.when;
 
 /**
  * Created by jj.jimenez on 05/01/2017.
@@ -24,15 +29,22 @@ import static org.junit.Assert.assertTrue;
 @RunWith(MockitoJUnitRunner.class)
 public class DoOrderTest {
 
+    public static final long ORDER_ID = 120L;
     // TODO use spring DI???
     @InjectMocks
-    private OrderWebServiceImpl orderWebService = new OrderWebServiceImpl();
+    private OrderWebServiceImpl orderWebService;
 
     @Mock
     private OrderService orderService;
 
     @Test
     public void doOrderServiceTest() {
+        BuyOperationResult buyOperationResult = new BuyOperationResult();
+        Order orderResult = new Order(ORDER_ID);
+        buyOperationResult.setOrder(orderResult);
+
+        when(orderService.buy(any(BuyOperationRequest.class))).thenReturn(buyOperationResult);
+
         List<ProductRequest> shoppingCart = new LinkedList<>();
         ProductRequest productRequest2 = new ProductRequest("2", 1);
         shoppingCart.add(productRequest2);
@@ -47,6 +59,6 @@ public class DoOrderTest {
 
         OrderResponse orderResponse = orderWebService.doOrder(orderRequest);
 
-        assertTrue(StringUtils.isNotBlank(orderResponse.getOrderId()));
+        assertTrue(orderResponse.getOrderId() == ORDER_ID);
     }
 }
