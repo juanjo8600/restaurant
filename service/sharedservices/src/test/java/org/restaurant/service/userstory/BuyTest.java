@@ -5,7 +5,7 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.restaurant.repositoy.bill.Bill;
+import org.restaurant.repositoy.model.Bill;
 import org.restaurant.repositoy.bill.BillRepository;
 import org.restaurant.service.buy.OrderService;
 import org.restaurant.service.buy.OrderServiceImpl;

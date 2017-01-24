@@ -1,4 +1,4 @@
-package org.restaurant.repositoy.bill;
+package org.restaurant.repositoy.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
