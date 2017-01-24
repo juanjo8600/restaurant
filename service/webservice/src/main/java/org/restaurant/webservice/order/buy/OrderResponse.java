@@ -13,8 +13,6 @@ import java.io.Serializable;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class OrderResponse implements Serializable {
 
-    private String orderId;
-
     @XmlTransient
     private Order order;
 
@@ -25,7 +23,7 @@ public class OrderResponse implements Serializable {
         this.order = buyOperationResult.getOrder();
     }
 
-    public String getOrderId() {
-        return orderId;
+    public Long getOrderId() {
+        return order.getOrderId();
     }
 }

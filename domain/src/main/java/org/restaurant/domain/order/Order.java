@@ -17,6 +17,17 @@ public class Order {
     private Map<Product, Integer> shoppingCart = new HashMap<>();
     private Discount discount = new NoDiscount();
 
+    private long orderId;
+
+    public Order(){
+        super();
+    }
+
+    public Order(long orderId) {
+        super();
+        this.orderId = orderId;
+    }
+
     /**
      * Add product to the order.
      *
@@ -82,5 +93,14 @@ public class Order {
      */
     public int getProductQuantity(Product product) {
         return shoppingCart.getOrDefault(product, 0);
+    }
+
+    /**
+     * Get order id.
+     *
+     * @return order id.
+     */
+    public long getOrderId() {
+        return orderId;
     }
 }
