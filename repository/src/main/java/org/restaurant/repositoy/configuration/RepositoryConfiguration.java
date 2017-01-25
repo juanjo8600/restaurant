@@ -1,6 +1,7 @@
 package org.restaurant.repositoy.configuration;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
@@ -20,13 +21,14 @@ import java.util.Properties;
 /**
  * Created by jj.jimenez on 23/01/2017.
  */
-@Configuration @EnableJpaRepositories(basePackages = "org.restaurant.repository") @EnableTransactionManagement public class RepositoryConfiguration {
+@Configuration @EnableJpaRepositories(basePackages = "org.restaurant.repository") @EnableTransactionManagement
+public class RepositoryConfiguration {
 
    @Bean
    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 	  LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 	  em.setDataSource(dataSource());
-	  em.setPackagesToScan(new String[] {"org.restaurant.repository.model"});
+	  em.setPackagesToScan("org.restaurant.repository.model");
 
 	  JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 	  em.setJpaVendorAdapter(vendorAdapter);
@@ -36,13 +38,12 @@ import java.util.Properties;
    }
 
    @Bean
-   @Profile("dev")
    public DataSource dataSource(){
 	  DriverManagerDataSource dataSource = new DriverManagerDataSource();
 	  dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-	  dataSource.setUrl("jdbc:mysql://localhost:3306/spring_jpa");
-	  dataSource.setUsername( "tutorialuser" );
-	  dataSource.setPassword( "tutorialmy5ql" );
+	  dataSource.setUrl("jdbc:mysql://localhost:3306/restaurant");
+	  dataSource.setUsername( "REST_APP" );
+	  dataSource.setPassword( "REST_APP" );
 	  return dataSource;
    }
 
