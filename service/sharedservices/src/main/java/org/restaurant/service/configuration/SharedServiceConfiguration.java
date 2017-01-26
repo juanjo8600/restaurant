@@ -1,6 +1,6 @@
 package org.restaurant.service.configuration;
 
-import org.restaurant.repositoy.configuration.RepositoryConfiguration;
+import org.restaurant.repository.configuration.RepositoryConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;

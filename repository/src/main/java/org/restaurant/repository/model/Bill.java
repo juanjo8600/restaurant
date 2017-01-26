@@ -1,4 +1,4 @@
-package org.restaurant.repositoy.model;
+package org.restaurant.repository.model;
 
 import javax.persistence.*;
 import java.util.Date;

@@ -1,6 +1,6 @@
-package org.restaurant.repositoy.bill;
+package org.restaurant.repository.bill;
 
-import org.restaurant.repositoy.model.Bill;
+import org.restaurant.repository.model.Bill;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package org.restaurant.repositoy.model;
+package org.restaurant.repository.model;
 
 import javax.persistence.*;
 
@@ -16,7 +16,7 @@ public class BillDetail {
     @ManyToOne
     private Bill bill;
 
-    private Product product;
+//    private Product product;
 
     private int quantity;
 }
