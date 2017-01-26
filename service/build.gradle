@@ -12,7 +12,6 @@ repositories {
 dependencies {
     compile project(':domain')
     compile project(':repository')
-    compile project(':service:webservice')
     compile project(':service:sharedservices')
 
     testCompile group: 'junit', name: 'junit', version: '4.11'

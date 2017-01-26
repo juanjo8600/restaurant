@@ -7,9 +7,18 @@ import org.restaurant.domain.common.Money;
  * Created by juanjosejimenezfernandez on 16/12/16.
  */
 public class Product {
-    private int code;
+    private String code;
     private String productName;
     private Money productPrice;
+
+    /**
+     * Constructor.
+     *
+     * @param code  product code.
+     */
+    public Product(String code) {
+        this.code = code;
+    }
 
     /**
      * Constructor.
@@ -18,7 +27,7 @@ public class Product {
      * @param name  product name.
      * @param price product price.
      */
-    public Product(int code, String name, Money price) {
+    public Product(String code, String name, Money price) {
         this.code = code;
         this.productName = name;
         this.productPrice = price;
@@ -38,7 +47,7 @@ public class Product {
      *
      * @return product code.
      */
-    public int getCode() {
+    public String getCode() {
         return code;
     }
 }

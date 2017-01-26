@@ -1,0 +1,38 @@
+group 'org.restaurant'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+def springVersion ='4.3.5.RELEASE'
+def cxfVersion ='3.1.9'
+def junitVersion ='4.11'
+def apacheCommonsVersion = '3.1'
+
+dependencies {
+
+    compile project(':domain')
+    compile project(':service:sharedservices')
+
+    compile group: 'org.springframework', name: 'spring-context', version: springVersion
+    compile group: 'org.springframework', name: 'spring-beans', version: springVersion
+    compile group: 'org.springframework', name: 'spring-web', version: springVersion
+
+    compile group: 'org.apache.cxf', name: 'cxf-core', version: cxfVersion
+    compile group: 'org.apache.cxf', name: 'cxf-rt-transports-http', version: cxfVersion
+    compile group: 'org.apache.cxf', name: 'cxf-rt-frontend-jaxws', version: cxfVersion
+
+    testCompile group: 'junit', name: 'junit', version: junitVersion
+    testCompile group: 'org.powermock', name: 'powermock-mockito-release-full', version: '1.5.4'
+    testCompile group: 'org.mockito', name: 'mockito-all', version: '1.8.4'
+
+    testCompile group: 'org.apache.commons', name: 'commons-lang3', version: apacheCommonsVersion
+
+
+}

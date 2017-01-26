@@ -1,3 +1,2 @@
 rootProject.name = 'restaurant'
-include 'repository' , 'domain', 'service:webservice', 'service:sharedservices'
-
+include 'repository' , 'domain', 'web:webservice', 'web', 'service:sharedservices', 'web:webclient'
