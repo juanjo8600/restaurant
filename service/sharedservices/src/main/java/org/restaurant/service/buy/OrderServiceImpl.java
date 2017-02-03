@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 /**
  * Created by juanjosejimenezfernandez on 24/12/16.
  */
@@ -27,6 +30,9 @@ public class OrderServiceImpl implements OrderService {
     public BuyOperationResult buy(BuyOperationRequest buyOperationRequest) {
 
         Bill bill = new Bill();
+        bill.setBillDate(new Date());
+        bill.setClientCode(555);
+        bill.setPrice(10.0);
         billRepository.save(bill);
 
         return new BuyOperationResult();

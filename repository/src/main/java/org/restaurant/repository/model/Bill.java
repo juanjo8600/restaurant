@@ -11,6 +11,7 @@ import java.util.List;
 @Table(name = "BILL")
 public class Bill {
 
+
     @Id
     @GeneratedValue
     @Column(name = "ID")
@@ -27,4 +28,36 @@ public class Bill {
 
     @OneToMany
     private List<BillDetail> billDetail;
+
+    public Date getBillDate() {
+        return billDate;
+    }
+
+    public void setBillDate(Date billDate) {
+        this.billDate = billDate;
+    }
+
+    public Integer getClientCode() {
+        return clientCode;
+    }
+
+    public void setClientCode(Integer clientCode) {
+        this.clientCode = clientCode;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public List<BillDetail> getBillDetail() {
+        return billDetail;
+    }
+
+    public void setBillDetail(List<BillDetail> billDetail) {
+        this.billDetail = billDetail;
+    }
 }
