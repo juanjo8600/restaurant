@@ -13,14 +13,14 @@ import java.util.List;
 @XmlType(namespace = "org.restaurant.webservice", name = "GetProductsResponse")
 public class GetProductsResponse implements Serializable{
 
-    private List<ProductResponse> productResponses;
+    private List<ProductResponse> productResponse;
 
     @XmlElement
-    public List<ProductResponse> getProductResponses() {
-        return productResponses;
+    public List<ProductResponse> getProductResponse() {
+        return productResponse;
     }
 
     public void setProductResponses(List<ProductResponse> productResponses) {
-        this.productResponses = productResponses;
+        this.productResponse = productResponses;
     }
 }

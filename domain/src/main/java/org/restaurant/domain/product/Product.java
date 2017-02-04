@@ -60,4 +60,8 @@ public class Product {
     public String getCode() {
         return code;
     }
+
+    public String getProductName() {
+        return productName;
+    }
 }
