@@ -22,8 +22,8 @@ public class AddMoneyTest {
         Money forEuro = new Money(new BigDecimal(4), Currency.EURO);
 
         Money addition = new Money();
-        addition.add(twoEuro);
-        addition.add(forEuro);
+        addition = addition.add(twoEuro);
+        addition = addition.add(forEuro);
 
         assertTrue(ADDITION_RESULT_SAME_CURRENCY.equals(addition));
 
@@ -35,8 +35,8 @@ public class AddMoneyTest {
         Money forEuro = new Money(new BigDecimal(4), Currency.NOT);
 
         Money addition = new Money();
-        addition.add(twoEuro);
-        addition.add(forEuro);
+        addition = addition.add(twoEuro);
+        addition = addition.add(forEuro);
 
         assertTrue(ADDITION_RESULT_DIFFERENT_CURRENCY.equals(addition));
 
