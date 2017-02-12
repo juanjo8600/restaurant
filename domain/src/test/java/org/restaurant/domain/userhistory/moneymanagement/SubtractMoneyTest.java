@@ -23,12 +23,4 @@ public class SubtractMoneyTest {
         money1 = money1.subtract(money2);
         assertTrue(money1.getAmount().equals(PRICE_ONE.subtract(PRICE_TWO).setScale(2, BigDecimal.ROUND_UP)));
     }
-
-    @Test
-    public void minValueMoneyZero() {
-        Money money1 = new Money(PRICE_ONE, Currency.EURO);
-        Money money2 = new Money(PRICE_TWO, Currency.EURO);
-        money2 = money2.subtract(money1);
-        assertTrue(money2.getAmount().equals(BigDecimal.ZERO.setScale(2)));
-    }
 }
