@@ -12,6 +12,8 @@ dependencies {
     compile project(':domain')
     compile project(':repository')
     compile project(':service')
+    compile project(':web')
+
 
 }
 

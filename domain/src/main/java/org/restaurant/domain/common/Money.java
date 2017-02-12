@@ -58,8 +58,8 @@ public class Money {
      *
      * @param money money to add.
      */
-    public void add(Money money) {
-        operate(money, (m1) -> m1.add(money.getAmount()));
+    public Money add(Money money) {
+        return operate(money, (m1) -> m1.add(money.getAmount()));
     }
 
     /**
@@ -68,8 +68,8 @@ public class Money {
      * @param money money to add.
      * @param times times to add.
      */
-    public void addNTimes(Money money, int times) {
-        operate(money, (m1) -> m1.add(money.getAmount().multiply(new BigDecimal(times))));
+    public Money addNTimes(Money money, int times) {
+        return operate(money, (m1) -> m1.add(money.getAmount().multiply(new BigDecimal(times))));
     }
 
     /**
@@ -77,21 +77,25 @@ public class Money {
      *
      * @param money money to subtract.
      */
-    public void subtract(Money money) {
-        operate(money, (m1) -> m1.subtract(money.getAmount()));
-        if(this.amount.compareTo(BigDecimal.ZERO)< 0){
-            this.amount = BigDecimal.ZERO;
-        }
+    public Money subtract(Money money) {
+        return operate(money, (m1) -> m1.subtract(money.getAmount()));
+
     }
 
-    private void operate(Money money, Function<BigDecimal,BigDecimal> function){
-        if (this.currency == Currency.NOT) {
-            currency = money.getCurrency();
-        }
-        if (money.currency.equals(this.currency)) {
-            this.amount = function.apply(this.getAmount());
-        }
+    private Money operate(Money money, Function<BigDecimal, BigDecimal> function) {
+        Money result = new Money();
 
+        if (this.currency == Currency.NOT) {
+            result.currency = money.getCurrency();
+        } else {
+            result.currency = this.currency;
+        }
+        if (money.currency.equals(result.currency)) {
+            result.amount = function.apply(this.getAmount());
+        } else {
+            result.amount = this.amount;
+        }
+        return result;
     }
 
     /**

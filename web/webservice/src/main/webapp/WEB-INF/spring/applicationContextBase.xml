@@ -8,5 +8,7 @@
     <bean class="org.restaurant.webservice.configuration.WebServiceConfiguration"/>
 
     <jaxws:endpoint id="orderService" implementor="org.restaurant.webservice.OrderWebServiceImpl" address="/DoOrder"/>
+    <jaxws:endpoint id="productService" implementor="org.restaurant.webservice.products.GetProductsWebserviceImpl" address="/GetProducts"/>
+
 
 </beans>

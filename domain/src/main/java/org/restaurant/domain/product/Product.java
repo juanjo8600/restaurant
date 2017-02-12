@@ -1,6 +1,9 @@
 package org.restaurant.domain.product;
 
 import org.restaurant.domain.common.Money;
+import org.restaurant.domain.constants.Currency;
+
+import java.math.BigDecimal;
 
 /**
  * Product.
@@ -33,6 +36,13 @@ public class Product {
         this.productPrice = price;
     }
 
+    public Product(String code, String name, BigDecimal priceDecimal) {
+        this.code = code;
+        this.productName = name;
+        Money price = new Money(priceDecimal, Currency.EURO);
+        this.productPrice = price;
+    }
+
     /**
      * Get product price.
      *
@@ -49,5 +59,9 @@ public class Product {
      */
     public String getCode() {
         return code;
+    }
+
+    public String getProductName() {
+        return productName;
     }
 }

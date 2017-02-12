@@ -39,7 +39,7 @@ public class RepositoryConfiguration {
    public DataSource dataSource(){
 	  DriverManagerDataSource dataSource = new DriverManagerDataSource();
 	  dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-	  dataSource.setUrl("jdbc:mysql://localhost:3306/restaurant");
+	  dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/restaurant?autoReconnect=true&useSSL=false");
 	  dataSource.setUsername( "REST_APP" );
 	  dataSource.setPassword( "REST_APP" );
 	  return dataSource;
@@ -60,7 +60,7 @@ public class RepositoryConfiguration {
 
    Properties additionalProperties() {
 	  Properties properties = new Properties();
-	  properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
+	  properties.setProperty("hibernate.hbm2ddl.auto", "update");
 	  properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
 	  return properties;
    }
